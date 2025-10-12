@@ -1,36 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Styled Webpage Example</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Practical Assessment 1</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Styled Webpage</h1>
-    </header>
+    <header>
+        <h1>Welcome to My Portfolio!</h1>
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="abtme.html">About Me</a> |
+            <a href="posts.html">Projects</a> |
+            <a href="socials.html">Contact</a>
+        </nav>
+    </header>
 
-    <main>
-        <h2>About CSS Styling</h2>
-        <p class="intro-text">
-            CSS allows for the separation of content and design, making web pages easier to maintain and more attractive.
-        </p>
-        <p class="info-text">
-            By using CSS, developers can control colors, fonts, spacing, positioning, and the overall layout of web elements.
-        </p>
+    <main>
+        <section id="about-me">
+            <h2>About Me</h2>
+            <p class="intro-text">Hello! Thank you for visiting my site! My name is Leigh, but I much prefer my second name Valerie.</p>
+            <p class="details-text">I am a 19 year old, living in Pasig, Philippines. I am currently a multimedia arts student, studying to be a professional artist.</p>
 
-        <ul class="custom-list">
-            <li>Text styling with font and color changes</li>
-            <li>Background colors for sections</li>
-            <li>Layout control with padding and margin</li>
-        </ul>
+            <article id="projects">
+                <h2>Projects</h2>
+                <p>Here are some projects I have done in my first year of being a multimedia arts student:</p>
+                <ul class="custom-list">
+                    <li>Introduction to Multimedia Arts - created logo studies for personal brand.</li>
+                    <li>Typography and Layout - created a newspaper experimenting with different fonts and practicing layout design.</li>
+                    <li>Digital Drawing - created a background suited for character design.</li>
+                    <li>Elements and Principles of Design - created a business website layout design.</li>
+                </ul>
+                <img src="P1.jpg" alt="Project 1" class="styled-image" width="800" />
+            </article>
+        </section>
 
-        <img src="https://via.placeholder.com/300x150" alt="Sample Image" class="styled-image" />
-    </main>
+        <section id="skills">
+            <h2>My Art Skills</h2>
+            <table>
+                <tr>
+                    <th>Skill</th>
+                    <th>Proficiency</th>
+                    <th>Percentage</th>
+                </tr>
+                <tr>
+                    <td>Graphic Design</td>
+                    <td>Advanced</td>
+                    <td>90%</td>
+                </tr>
+                <tr>
+                    <td>Digital Illustration</td>
+                    <td>Intermediate</td>
+                    <td>70%</td>
+                </tr>
+                <tr>
+                    <td>Photo Editing</td>
+                    <td>Intermediate</td>
+                    <td>65%</td>
+                </tr>
+                <tr>
+                    <td>Layout Design</td>
+                    <td>Advanced</td>
+                    <td>95%</td>
+                </tr>
+            </table>
+        </section>
 
-    <footer>
-        <p>© 2025 My Styled Webpage. All rights reserved.</p>
-    </footer>
+        <section id="contact">
+            <h2>Contact details!</h2>
+            <ul class="contact-list">
+                <li>Email: <a href="mailto:leighvaleriemedina22@gmail.com">leighvaleriemedina22@gmail.com</a></li>
+                <li>Phone: <a href="tel:+0987654321">(098) 765-4321</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Valerie, My student portfolio.</p>
+    </footer>
 </body>
 </html>
