@@ -15,7 +15,7 @@ let userData = [];
 [idNumber, firstName, middleName, lastName, gender, birthday].forEach(input => {
     input.addEventListener('focus', () => {
         removeHighlight();
-        input.style.backgroundColor = '#4ffcfcff';
+        input.style.backgroundColor = '#4fcbfcff';
     });
 });
  
