@@ -1,4 +1,4 @@
- let idNumber = document.getElementById('idNumber');
+let idNumber = document.getElementById('idNumber');
 let firstName = document.getElementById('firstName');
 let middleName = document.getElementById('middleName');
 let lastName = document.getElementById('lastName');
@@ -12,64 +12,48 @@ dataTable.style.display = 'none';
  
 let userData = [];
  
-[idNumber, firstName, middleName, lastName, gender, birthday].forEach(input => {
-    input.addEventListener('focus', () => {
-        removeHighlight();
-        input.style.backgroundColor = '#4fcbfcff';
-    });
-});
- 
-function removeHighlight() {
-    idNumber.style.backgroundColor = '';
-    firstName.style.backgroundColor = '';
-    middleName.style.backgroundColor = '';
-    lastName.style.backgroundColor = '';
-    gender.style.backgroundColor = '';
-    birthday.style.backgroundColor = '';
+function getUserInput() {
+    return {
+        id: idNumber.value.trim(),
+        first: firstName.value.trim(),
+        middle: middleName.value.trim(),
+        last: lastName.value.trim(),
+        gen: gender.value.trim(),
+        bday: birthday.value.trim()
+    };
 }
  
-function saveData() {
-    if (
-        idNumber.value === '' ||
-        firstName.value === '' ||
-        middleName.value === '' ||
-        lastName.value === '' ||
-        gender.value === '' ||
-        birthday.value === ''
-    ) {
+function clearInputs() {
+    [idNumber, firstName, middleName, lastName, gender, birthday].forEach(input => input.value = '');
+}
+ 
+function saveUserData() {
+    let userInput = getUserInput();
+ 
+    if (Object.values(userInput).some(value => value === '')) {
         alert('Please fill in all fields before saving.');
         return;
     }
  
-    let user = {
-        id: idNumber.value,
-        first: firstName.value,
-        middle: middleName.value,
-        last: lastName.value,
-        gen: gender.value,
-        bday: birthday.value
-    };
- 
-    userData.push(user);
+    userData.push(userInput);
  
     dataTable.style.display = 'table';
  
-    let newRow = dataTable.insertRow();
-    newRow.insertCell(0).textContent = user.id;
-    newRow.insertCell(1).textContent = user.first;
-    newRow.insertCell(2).textContent = user.middle;
-    newRow.insertCell(3).textContent = user.last;
-    newRow.insertCell(4).textContent = user.gen;
-    newRow.insertCell(5).textContent = user.bday;
+    let tbody = dataTable.querySelector('tbody');
+    let newRow = document.createElement('tr');
+    newRow.innerHTML = `
+        ${userInput.id}</td>
+        <td>${userInput.first}</td>
+        <td>${userInput.middle}</td>
+        <td>${userInput.last}</td>
+        <td>${userInput.gen}</td>
+        <td>${userInput.bday}</td>
+    `;
+    tbody.appendChild(newRow);
  
-    saveBtn.style.backgroundColor = 'lightblue';
- 
-    idNumber.value = '';
-    firstName.value = '';
-    middleName.value = '';
-    lastName.value = '';
-    gender.value = '';
-    birthday.value = '';
+    clearInputs();
+    saveBtn.style.backgroundColor = '#a7d8de';
 }
  
-saveBtn.addEventListener('click', saveData);
+saveBtn.addEventListener('click', saveUserData);
+ 
